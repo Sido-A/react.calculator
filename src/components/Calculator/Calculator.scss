@@ -1,46 +1,88 @@
 .layout {
-	height: 100%;
-	background-color: #000;
-	display: flex;
-	flex-direction: column;
+  height: 100%;
+  background-color: #000;
+  border-radius: 2em;
+  display: flex;
+  flex-direction: column;
 
-	.result {
-		flex: 1;
-		display: flex;
-		align-items: flex-end;
-		justify-content: flex-end;
-		color: #fff;
-		padding: 1em;
-		font-size: 2em;
-	}
+  .result {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: #fff;
+    padding: 0.5em;
+    font-size: 4em;
+  }
 
-	.pad {
-		padding: 1em 0;
-		background-color: yellow;
-		ul {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			list-style: none;
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-gap: 1em;
+  .pad {
+    color: #fff;
+    padding: 1em 1em 5em 1em;
+    ul {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1em;
 
-			li {
-				padding-bottom: 100%;
-				position: relative;
+      li {
+        padding-bottom: 100%;
+        position: relative;
 
-				span {
-					height: 100%;
-					width: 100%;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-                    position: absolute;
-                    border: 1px solid black;
-                    cursor: pointer;
-				}
-			}
-		}
-	}
+        span {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          border-radius: 50%;
+          background-color: #494747;
+          cursor: pointer;
+          font-size: 2em;
+
+          &[data-type="number"] {
+            &:hover {
+              color: #000;
+              background-color: #d4d2d2;
+              transition: 1s;
+            }
+          }
+
+          &[data-type="clear"],
+          &[data-type="plusMinus"],
+          &[data-type="percent"] {
+            color: #000;
+            background-color: #d4d2d2;
+
+            &:hover {
+              color: #d4d2d2;
+              background-color: #494747;
+              transition: 1s;
+            }
+          }
+
+          &[data-type="decimal"] {
+            background-color: #494747;
+            &:hover {
+              color: #494747;
+              background-color: #fff;
+              transition: 1s;
+            }
+          }
+
+          &[data-type="symbol"] {
+            background-color: #e77306;
+            &:hover {
+              color: #494747;
+              background-color: #fff;
+              transition: 1s;
+            }
+          }
+        }
+      }
+    }
+  }
 }
